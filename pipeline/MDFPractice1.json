@@ -1,0 +1,52 @@
+{
+	"name": "MDFPractice1",
+	"properties": {
+		"activities": [
+			{
+				"name": "MDFPractice1",
+				"type": "ExecuteDataFlow",
+				"dependsOn": [],
+				"policy": {
+					"timeout": "0.12:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"dataflow": {
+						"referenceName": "MappingDataflowPractice1",
+						"type": "DataFlowReference",
+						"parameters": {
+							"pMinAge": {
+								"value": "@pipeline().parameters.PL_P_MinAge",
+								"type": "Expression"
+							},
+							"pMaxAge": {
+								"value": "@pipeline().parameters.PL_P_MaxAge",
+								"type": "Expression"
+							}
+						}
+					},
+					"compute": {
+						"coreCount": 8,
+						"computeType": "General"
+					},
+					"traceLevel": "Fine"
+				}
+			}
+		],
+		"parameters": {
+			"PL_P_MinAge": {
+				"type": "int"
+			},
+			"PL_P_MaxAge": {
+				"type": "int"
+			}
+		},
+		"annotations": [],
+		"lastPublishTime": "2023-07-14T07:47:19Z"
+	},
+	"type": "Microsoft.DataFactory/factories/pipelines"
+}

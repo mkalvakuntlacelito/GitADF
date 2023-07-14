@@ -1,0 +1,17 @@
+{
+	"name": "ds_azuresqldb_connection",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "lsazuresqldb",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "AzureSqlTable",
+		"schema": [],
+		"typeProperties": {
+			"schema": "SalesLT",
+			"table": "Customer"
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

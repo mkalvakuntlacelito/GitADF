@@ -1,0 +1,32 @@
+{
+	"name": "ds_param_output",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "ls_param_output",
+			"type": "LinkedServiceReference"
+		},
+		"parameters": {
+			"p_OutputFileName": {
+				"type": "string"
+			}
+		},
+		"annotations": [],
+		"type": "DelimitedText",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobFSLocation",
+				"fileName": {
+					"value": "@dataset().p_OutputFileName",
+					"type": "Expression"
+				},
+				"fileSystem": "output"
+			},
+			"columnDelimiter": ",",
+			"escapeChar": "\\",
+			"firstRowAsHeader": true,
+			"quoteChar": "\""
+		},
+		"schema": []
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

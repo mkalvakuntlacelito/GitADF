@@ -1,0 +1,79 @@
+{
+	"name": "ExecugePLSendEmail",
+	"properties": {
+		"activities": [
+			{
+				"name": "Execute Pipeline1",
+				"type": "ExecutePipeline",
+				"dependsOn": [],
+				"userProperties": [],
+				"typeProperties": {
+					"pipeline": {
+						"referenceName": "Pl_SCD_Type1",
+						"type": "PipelineReference"
+					},
+					"waitOnCompletion": true
+				}
+			},
+			{
+				"name": "SendEmailSuccess",
+				"type": "WebActivity",
+				"dependsOn": [
+					{
+						"activity": "Execute Pipeline1",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"policy": {
+					"timeout": "0.12:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"url": "https://sendemail23021979.azurewebsites.net:443/api/sendemailwf/triggers/When_a_HTTP_request_is_received/invoke?api-version=2022-05-01&sp=%2Ftriggers%2FWhen_a_HTTP_request_is_received%2Frun&sv=1.0&sig=7ar1TTLjhoVAD8d8NEHtqw8sjHZffbeacswaqpUT7nM",
+					"method": "POST",
+					"body": {
+						"value": "{\n\"Title\":\"This email form azure data factory\",\n\"Message\":\"Copy data using DF Activity executed Successfully\",\n\"DataFactoryName\":\"@{pipeline().DataFactory}\",\n\"PipelineName\":\"@{pipeline().Pipeline}\",\n\"TriggerName\":\"@{pipeline().TriggerName}\",\n\"Time\":\"@{utcNow()}\"\n}",
+						"type": "Expression"
+					}
+				}
+			},
+			{
+				"name": "SendEmailFailure",
+				"type": "WebActivity",
+				"dependsOn": [
+					{
+						"activity": "Execute Pipeline1",
+						"dependencyConditions": [
+							"Failed"
+						]
+					}
+				],
+				"policy": {
+					"timeout": "0.12:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"url": "https://sendemail23021979.azurewebsites.net:443/api/sendemailwf/triggers/When_a_HTTP_request_is_received/invoke?api-version=2022-05-01&sp=%2Ftriggers%2FWhen_a_HTTP_request_is_received%2Frun&sv=1.0&sig=7ar1TTLjhoVAD8d8NEHtqw8sjHZffbeacswaqpUT7nM",
+					"method": "POST",
+					"body": {
+						"value": "{\n\"Title\":\"This email form azure data factory\",\n\"Message\":\"Copy data using DF Activity executed Failed\",\n\"DataFactoryName\":\"@{pipeline().DataFactory}\",\n\"PipelineName\":\"@{pipeline().Pipeline}\",\n\"TriggerName\":\"@{pipeline().TriggerName}\",\n\"Time\":\"@{utcNow()}\"\n}",
+						"type": "Expression"
+					}
+				}
+			}
+		],
+		"annotations": [],
+		"lastPublishTime": "2023-07-12T16:15:52Z"
+	},
+	"type": "Microsoft.DataFactory/factories/pipelines"
+}

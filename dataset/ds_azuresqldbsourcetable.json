@@ -1,0 +1,35 @@
+{
+	"name": "ds_azuresqldbsourcetable",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "lsazuresqldb",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "AzureSqlTable",
+		"schema": [
+			{
+				"name": "Key",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "Name",
+				"type": "varchar"
+			},
+			{
+				"name": "Phone",
+				"type": "varchar"
+			},
+			{
+				"name": "Last_m",
+				"type": "date"
+			}
+		],
+		"typeProperties": {
+			"schema": "source",
+			"table": "tbluser"
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}
