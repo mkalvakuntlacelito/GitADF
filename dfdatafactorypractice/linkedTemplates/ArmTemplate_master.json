@@ -1,0 +1,194 @@
+{
+	"$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"factoryName": {
+			"type": "string",
+			"metadata": "Data Factory name",
+			"defaultValue": "dfdatafactorypractice"
+		},
+		"AzureDataLakeStorage1_accountKey": {
+			"type": "secureString",
+			"metadata": "Secure string for 'accountKey' of 'AzureDataLakeStorage1'"
+		},
+		"AzureDataLakeStorage2_accountKey": {
+			"type": "secureString",
+			"metadata": "Secure string for 'accountKey' of 'AzureDataLakeStorage2'"
+		},
+		"DFPractice_accountKey": {
+			"type": "secureString",
+			"metadata": "Secure string for 'accountKey' of 'DFPractice'"
+		},
+		"HttpServer1_password": {
+			"type": "secureString",
+			"metadata": "Secure string for 'password' of 'HttpServer1'"
+		},
+		"LS_DatafactoryStorage_accountKey": {
+			"type": "secureString",
+			"metadata": "Secure string for 'accountKey' of 'LS_DatafactoryStorage'"
+		},
+		"ls_inputparam_accountKey": {
+			"type": "secureString",
+			"metadata": "Secure string for 'accountKey' of 'ls_inputparam'"
+		},
+		"ls_param_output_accountKey": {
+			"type": "secureString",
+			"metadata": "Secure string for 'accountKey' of 'ls_param_output'"
+		},
+		"lsazuresqldb_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'lsazuresqldb'"
+		},
+		"AzureDataLakeStorage1_properties_typeProperties_url": {
+			"type": "string",
+			"defaultValue": "https://datalake23021979.dfs.core.windows.net/"
+		},
+		"AzureDataLakeStorage2_properties_typeProperties_url": {
+			"type": "string",
+			"defaultValue": "https://saemploydepartment.dfs.core.windows.net/"
+		},
+		"DFPractice_properties_typeProperties_url": {
+			"type": "string",
+			"defaultValue": "https://datalake23021979.dfs.core.windows.net/"
+		},
+		"HttpServer1_properties_typeProperties_url": {
+			"type": "string",
+			"defaultValue": "https://github.com"
+		},
+		"HttpServer1_properties_typeProperties_userName": {
+			"type": "string",
+			"defaultValue": "mkalvakuntla@celitotech.com"
+		},
+		"LS_DatafactoryStorage_properties_typeProperties_url": {
+			"type": "string",
+			"defaultValue": "https://saemploydepartment.dfs.core.windows.net/"
+		},
+		"ls_inputparam_properties_typeProperties_url": {
+			"type": "string",
+			"defaultValue": "https://datalake23021979.dfs.core.windows.net/"
+		},
+		"ls_param_output_properties_typeProperties_url": {
+			"type": "string",
+			"defaultValue": "https://datalake23021979.dfs.core.windows.net/"
+		},
+		"containerUri": {
+			"type": "string",
+			"metadata": "URI to storage account containing linked ARM templates"
+		},
+		"containerSasToken": {
+			"type": "string",
+			"metadata": "Sas token to storage account containing linked ARM templates"
+		}
+	},
+	"variables": {
+		"factoryId": "[concat('Microsoft.DataFactory/factories/', parameters('factoryName'))]"
+	},
+	"resources": [
+		{
+			"name": "dfdatafactorypractice_ArmTemplate_0",
+			"type": "Microsoft.Resources/deployments",
+			"apiVersion": "2018-02-01",
+			"properties": {
+				"mode": "incremental",
+				"templateLink": {
+					"uri": "[concat(parameters('containerUri'), '/ArmTemplate_0.json', parameters('containerSasToken'))]",
+					"contentVersion": "1.0.0.0"
+				},
+				"parameters": {
+					"factoryName": {
+						"value": "[parameters('factoryName')]"
+					},
+					"AzureDataLakeStorage1_accountKey": {
+						"value": "[parameters('AzureDataLakeStorage1_accountKey')]"
+					},
+					"AzureDataLakeStorage2_accountKey": {
+						"value": "[parameters('AzureDataLakeStorage2_accountKey')]"
+					},
+					"DFPractice_accountKey": {
+						"value": "[parameters('DFPractice_accountKey')]"
+					},
+					"HttpServer1_password": {
+						"value": "[parameters('HttpServer1_password')]"
+					},
+					"LS_DatafactoryStorage_accountKey": {
+						"value": "[parameters('LS_DatafactoryStorage_accountKey')]"
+					},
+					"ls_inputparam_accountKey": {
+						"value": "[parameters('ls_inputparam_accountKey')]"
+					},
+					"ls_param_output_accountKey": {
+						"value": "[parameters('ls_param_output_accountKey')]"
+					},
+					"lsazuresqldb_connectionString": {
+						"value": "[parameters('lsazuresqldb_connectionString')]"
+					},
+					"AzureDataLakeStorage1_properties_typeProperties_url": {
+						"value": "[parameters('AzureDataLakeStorage1_properties_typeProperties_url')]"
+					},
+					"AzureDataLakeStorage2_properties_typeProperties_url": {
+						"value": "[parameters('AzureDataLakeStorage2_properties_typeProperties_url')]"
+					},
+					"DFPractice_properties_typeProperties_url": {
+						"value": "[parameters('DFPractice_properties_typeProperties_url')]"
+					},
+					"HttpServer1_properties_typeProperties_url": {
+						"value": "[parameters('HttpServer1_properties_typeProperties_url')]"
+					},
+					"HttpServer1_properties_typeProperties_userName": {
+						"value": "[parameters('HttpServer1_properties_typeProperties_userName')]"
+					},
+					"LS_DatafactoryStorage_properties_typeProperties_url": {
+						"value": "[parameters('LS_DatafactoryStorage_properties_typeProperties_url')]"
+					},
+					"ls_inputparam_properties_typeProperties_url": {
+						"value": "[parameters('ls_inputparam_properties_typeProperties_url')]"
+					},
+					"ls_param_output_properties_typeProperties_url": {
+						"value": "[parameters('ls_param_output_properties_typeProperties_url')]"
+					}
+				}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "dfdatafactorypractice_ArmTemplate_1",
+			"type": "Microsoft.Resources/deployments",
+			"apiVersion": "2018-02-01",
+			"properties": {
+				"mode": "incremental",
+				"templateLink": {
+					"uri": "[concat(parameters('containerUri'), '/ArmTemplate_1.json', parameters('containerSasToken'))]",
+					"contentVersion": "1.0.0.0"
+				},
+				"parameters": {
+					"factoryName": {
+						"value": "[parameters('factoryName')]"
+					}
+				}
+			},
+			"dependsOn": [
+				"[resourceId('Microsoft.Resources/deployments', 'dfdatafactorypractice_ArmTemplate_0')]"
+			]
+		},
+		{
+			"name": "dfdatafactorypractice_ArmTemplate_2",
+			"type": "Microsoft.Resources/deployments",
+			"apiVersion": "2018-02-01",
+			"properties": {
+				"mode": "incremental",
+				"templateLink": {
+					"uri": "[concat(parameters('containerUri'), '/ArmTemplate_2.json', parameters('containerSasToken'))]",
+					"contentVersion": "1.0.0.0"
+				},
+				"parameters": {
+					"factoryName": {
+						"value": "[parameters('factoryName')]"
+					}
+				}
+			},
+			"dependsOn": [
+				"[resourceId('Microsoft.Resources/deployments', 'dfdatafactorypractice_ArmTemplate_1')]"
+			]
+		}
+	]
+}

@@ -1,0 +1,57 @@
+{
+	"$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"factoryName": {
+			"value": "dfdatafactorypractice"
+		},
+		"AzureDataLakeStorage1_accountKey": {
+			"value": ""
+		},
+		"AzureDataLakeStorage2_accountKey": {
+			"value": ""
+		},
+		"DFPractice_accountKey": {
+			"value": ""
+		},
+		"HttpServer1_password": {
+			"value": ""
+		},
+		"LS_DatafactoryStorage_accountKey": {
+			"value": ""
+		},
+		"ls_inputparam_accountKey": {
+			"value": ""
+		},
+		"ls_param_output_accountKey": {
+			"value": ""
+		},
+		"lsazuresqldb_connectionString": {
+			"value": ""
+		},
+		"AzureDataLakeStorage1_properties_typeProperties_url": {
+			"value": "https://datalake23021979.dfs.core.windows.net/"
+		},
+		"AzureDataLakeStorage2_properties_typeProperties_url": {
+			"value": "https://saemploydepartment.dfs.core.windows.net/"
+		},
+		"DFPractice_properties_typeProperties_url": {
+			"value": "https://datalake23021979.dfs.core.windows.net/"
+		},
+		"HttpServer1_properties_typeProperties_url": {
+			"value": "https://github.com"
+		},
+		"HttpServer1_properties_typeProperties_userName": {
+			"value": "mkalvakuntla@celitotech.com"
+		},
+		"LS_DatafactoryStorage_properties_typeProperties_url": {
+			"value": "https://saemploydepartment.dfs.core.windows.net/"
+		},
+		"ls_inputparam_properties_typeProperties_url": {
+			"value": "https://datalake23021979.dfs.core.windows.net/"
+		},
+		"ls_param_output_properties_typeProperties_url": {
+			"value": "https://datalake23021979.dfs.core.windows.net/"
+		}
+	}
+}
